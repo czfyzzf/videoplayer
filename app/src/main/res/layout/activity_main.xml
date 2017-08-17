@@ -12,6 +12,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/frame_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -19,13 +20,41 @@
     </FrameLayout>
 
     <RadioGroup
+        android:id="@+id/rg_main_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#11000000"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_weight="1"
+            android:text="本地视频"
+            android:id="@+id/rg_main_bottom_video"
+            android:drawableTop="@drawable/rg_textcolor_selector"
+            style="@style/rb_style"
+            android:button="@android:color/transparent"
+            />
+        <RadioButton
+            android:layout_weight="1"
+            android:text="本地视频"
+            android:id="@+id/rg_main_bottom_net_video"
+            android:drawableTop="@drawable/rg_textcolor_selector"
+            style="@style/rb_style"
+            />
+        <RadioButton
+            android:layout_weight="1"
+            android:text="本地视频"
+            android:id="@+id/rg_main_bottom_music"
+            android:drawableTop="@drawable/rg_textcolor_selector"
+            style="@style/rb_style"
+            />
+        <RadioButton
+            android:layout_weight="1"
+            android:text="本地视频"
+            android:id="@+id/rg_main_bottom_net_music"
+            android:drawableTop="@drawable/rg_textcolor_selector"
+            style="@style/rb_style"
+            />
 
     </RadioGroup>
 </LinearLayout>
