@@ -4,12 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-    </LinearLayout>
+    <include layout="@layout/titlebar"/>
 
     <FrameLayout
         android:id="@+id/frame_content"
@@ -36,21 +31,21 @@
             />
         <RadioButton
             android:layout_weight="1"
-            android:text="本地视频"
+            android:text="本地音乐"
             android:id="@+id/rg_main_bottom_net_video"
             android:drawableTop="@drawable/rg_textcolor_selector"
             style="@style/rb_style"
             />
         <RadioButton
             android:layout_weight="1"
-            android:text="本地视频"
+            android:text="网上视频"
             android:id="@+id/rg_main_bottom_music"
             android:drawableTop="@drawable/rg_textcolor_selector"
             style="@style/rb_style"
             />
         <RadioButton
             android:layout_weight="1"
-            android:text="本地视频"
+            android:text="网上音乐"
             android:id="@+id/rg_main_bottom_net_music"
             android:drawableTop="@drawable/rg_textcolor_selector"
             style="@style/rb_style"

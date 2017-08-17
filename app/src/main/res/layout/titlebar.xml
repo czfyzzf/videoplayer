@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimary"
+    android:gravity="center">
+    <ImageView
+        android:layout_marginLeft="5dp"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_search_logo"/>
+    <TextView
+        android:id="@+id/search_bar"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/search_bar_icon_search_selector"
+        android:background="@drawable/search_bg_selector"
+        android:text="全网搜索"
+        android:textColor="@drawable/search_bar_text_color_selector"
+        android:textSize="18sp"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:src="@drawable/ic_history_view"/>
+</LinearLayout>

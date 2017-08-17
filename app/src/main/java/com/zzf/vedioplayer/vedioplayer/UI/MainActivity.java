@@ -40,7 +40,6 @@ private FrameLayout frameLayout;
         setContentView(R.layout.activity_main);
         frameLayout = (FrameLayout) findViewById(R.id.frame_content);
         rg_bottom = (RadioGroup) findViewById(R.id.rg_main_bottom);
-        rg_bottom.check(R.id.rg_main_bottom_video);
 
         pagrList = new ArrayList<>();
         pagrList.add(new VideoPager(this));
@@ -54,24 +53,22 @@ private FrameLayout frameLayout;
                 switch (checkedId){
                     default:
                         currentPosition = 0;
-                        Log.i(TAG,"0");
                         break;
                     case R.id.rg_main_bottom_music:
                         currentPosition = 1;
-                        Log.i(TAG,"1");
                         break;
                     case R.id.rg_main_bottom_net_video:
                         currentPosition = 2;
-                        Log.i(TAG,"2");
                         break;
                     case R.id.rg_main_bottom_net_music:
                         currentPosition = 3;
-                        Log.i(TAG,"3");
                         break;
                 }
+                setFragment();
             }
         });
-        setFragment();
+        rg_bottom.check(R.id.rg_main_bottom_video);
+
 
 
     }
@@ -79,7 +76,7 @@ private FrameLayout frameLayout;
     private void setFragment() {
         FragmentManager manage = getSupportFragmentManager();
         FragmentTransaction transaction = manage.beginTransaction();
-        transaction.replace(R.id.frame_content,new RepalaceFragment(getbasePager()));
+        transaction.replace(R.id.frame_content,new RepalaceFragment(getbasePager()));;
         transaction.commit();
     }
 
