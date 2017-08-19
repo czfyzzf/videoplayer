@@ -1,22 +1,15 @@
 package com.zzf.vedioplayer.vedioplayer.UI;
 
 import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.zzf.vedioplayer.vedioplayer.R;
-import com.zzf.vedioplayer.vedioplayer.RepalaceFragment;
+import com.zzf.vedioplayer.vedioplayer.base.RepalaceFragment;
 import com.zzf.vedioplayer.vedioplayer.base.BasePager;
 import com.zzf.vedioplayer.vedioplayer.pager.MusicPager;
 import com.zzf.vedioplayer.vedioplayer.pager.NetMusicPager;
@@ -27,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends FragmentActivity {
-private FrameLayout frameLayout;
+    private FrameLayout frameLayout;
     private RadioGroup rg_bottom;
     private List<BasePager> pagrList;
     private int currentPosition;
@@ -50,7 +43,7 @@ private FrameLayout frameLayout;
         rg_bottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                switch (checkedId){
+                switch (checkedId) {
                     default:
                         currentPosition = 0;
                         break;
@@ -69,20 +62,18 @@ private FrameLayout frameLayout;
         });
         rg_bottom.check(R.id.rg_main_bottom_video);
 
-
-
     }
 
     private void setFragment() {
         FragmentManager manage = getSupportFragmentManager();
         FragmentTransaction transaction = manage.beginTransaction();
-        transaction.replace(R.id.frame_content,new RepalaceFragment(getbasePager()));;
+        transaction.replace(R.id.frame_content, new RepalaceFragment(getbasePager()));
         transaction.commit();
     }
 
     public BasePager getbasePager() {
         BasePager basePager = pagrList.get(currentPosition);
-        if(basePager != null && !(basePager.isCreadView)){
+        if (basePager != null && !(basePager.isCreadView)) {
             basePager.isCreadView = true;
             basePager.initDate();
         }

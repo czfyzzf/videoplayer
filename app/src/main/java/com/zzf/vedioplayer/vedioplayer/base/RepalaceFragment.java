@@ -1,4 +1,4 @@
-package com.zzf.vedioplayer.vedioplayer;
+package com.zzf.vedioplayer.vedioplayer.base;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
