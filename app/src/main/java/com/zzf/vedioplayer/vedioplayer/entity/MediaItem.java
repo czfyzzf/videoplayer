@@ -2,13 +2,14 @@ package com.zzf.vedioplayer.vedioplayer.entity;
 
 import com.zzf.vedioplayer.vedioplayer.util.TimeTransfer;
 
+import java.io.Serializable;
 
 
 /**
  * Created by zzf on 2017/8/18.
  */
 
-public class MediaItem {
+public class MediaItem implements Serializable{
     private String name;
     private long duration;
     private String size;
@@ -23,8 +24,8 @@ public class MediaItem {
         this.name = name;
     }
 
-    public String getDuration() {
-        return TimeTransfer.transferLongToDate("HH:mm:ss",duration);
+    public long getDuration() {
+        return duration;
     }
 
     public void setDuration(long duration) {

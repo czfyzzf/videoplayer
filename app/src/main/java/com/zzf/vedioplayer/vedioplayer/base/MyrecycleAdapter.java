@@ -3,6 +3,7 @@ package com.zzf.vedioplayer.vedioplayer.base;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,9 @@ import android.widget.TextView;
 import com.zzf.vedioplayer.vedioplayer.R;
 import com.zzf.vedioplayer.vedioplayer.entity.MediaItem;
 import com.zzf.vedioplayer.vedioplayer.player.VideoPlayActivity;
+import com.zzf.vedioplayer.vedioplayer.util.TimeTransfer;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -53,7 +56,11 @@ public class MyrecycleAdapter extends RecyclerView.Adapter<MyrecycleAdapter.View
                 int position = holder.getAdapterPosition();
                 MediaItem mediaItem = mediaItems.get(position);
                 Intent intent = new Intent(context, VideoPlayActivity.class);
-                intent.setDataAndType(Uri.parse(mediaItem.getData()),"video/*");
+//                intent.setDataAndType(Uri.parse(mediaItem.getData()),"video/*");
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("videolist", (Serializable) mediaItems);
+                intent.putExtras(bundle);
+                intent.putExtra("position",position);
                 context.startActivity(intent);
             }
         });
@@ -64,7 +71,7 @@ public class MyrecycleAdapter extends RecyclerView.Adapter<MyrecycleAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         MediaItem mediaItem = mediaItems.get(position);
         holder.mediaName.setText(mediaItem.getName());
-        holder.mediaDuration.setText(mediaItem.getDuration());
+        holder.mediaDuration.setText(TimeTransfer.transferLongToDate("HH:mm:ss",mediaItem.getDuration()));
         holder.mediaSize.setText(mediaItem.getSize());
     }
 
